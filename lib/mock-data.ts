@@ -33,12 +33,12 @@ export const todayStats = {
   followUps: 6,
 }
 
-// Structural data only — caller/reason copy lives in lib/translations.ts,
+// Structural data only — caller/reason/time copy lives in lib/translations.ts,
 // keyed by the same index/order as these arrays.
-export const heroRecentCalls: { id: string; status: CallStatus; time: string }[] = [
-  { id: "c-1", status: "resolved", time: "2 min ago" },
-  { id: "c-2", status: "transferred", time: "14 min ago" },
-  { id: "c-3", status: "escalated", time: "26 min ago" },
+export const heroRecentCalls: { id: string; status: CallStatus }[] = [
+  { id: "c-1", status: "resolved" },
+  { id: "c-2", status: "transferred" },
+  { id: "c-3", status: "escalated" },
 ]
 
 export const dashboardStatValues = ["127", "103", "8", "95"]

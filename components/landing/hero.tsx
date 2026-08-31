@@ -51,7 +51,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.18 }}
             className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row"
           >
-            <LinkButton href="#demo" size="lg" className="gap-2">
+            <LinkButton href="#book-demo" size="lg" className="gap-2">
               {t.hero.ctaPrimary}
               <ArrowRight className="size-4" />
             </LinkButton>

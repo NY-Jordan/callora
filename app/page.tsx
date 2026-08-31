@@ -1,3 +1,4 @@
+import { BookDemoForm } from "@/components/landing/book-demo-form"
 import { CallDemo } from "@/components/landing/call-demo"
 import { DashboardShowcase } from "@/components/landing/dashboard-showcase"
 import { Faq } from "@/components/landing/faq"
@@ -11,10 +12,19 @@ import { Pricing } from "@/components/landing/pricing"
 import { ProblemSection } from "@/components/landing/problem-section"
 import { RoiSection } from "@/components/landing/roi-section"
 import { TrustSection } from "@/components/landing/trust-section"
+import { faqJsonLd, softwareApplicationJsonLd } from "@/lib/structured-data"
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationJsonLd()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }}
+      />
       <Navbar />
       <main className="flex-1">
         <Hero />
@@ -28,6 +38,7 @@ export default function Home() {
         <Pricing />
         <Faq />
         <FinalCta />
+        <BookDemoForm />
       </main>
       <Footer />
     </>

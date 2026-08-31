@@ -50,7 +50,7 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <LinkButton href="#demo" size="lg" className="w-full">
+              <LinkButton href="#book-demo" size="lg" className="w-full">
                 {t.pricing.cta}
               </LinkButton>
 

@@ -22,7 +22,7 @@ export function FinalCta() {
             {t.finalCta.subhead}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <LinkButton href="#demo" size="lg" variant="secondary" className="gap-2">
+            <LinkButton href="#book-demo" size="lg" variant="secondary" className="gap-2">
               {t.finalCta.ctaPrimary}
               <ArrowRight className="size-4" />
             </LinkButton>

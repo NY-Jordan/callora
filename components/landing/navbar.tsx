@@ -52,7 +52,7 @@ export function Navbar() {
           <LinkButton href="#demo" variant="ghost" size="sm">
             {t.nav.tryOra}
           </LinkButton>
-          <LinkButton href="#demo" variant="default" size="sm">
+          <LinkButton href="#book-demo" variant="default" size="sm">
             {t.nav.bookDemo}
           </LinkButton>
         </div>
@@ -95,7 +95,7 @@ export function Navbar() {
                 <LinkButton href="#demo" variant="outline" size="sm" onPress={() => setOpen(false)}>
                   {t.nav.tryOra}
                 </LinkButton>
-                <LinkButton href="#demo" variant="default" size="sm" onPress={() => setOpen(false)}>
+                <LinkButton href="#book-demo" variant="default" size="sm" onPress={() => setOpen(false)}>
                   {t.nav.bookDemo}
                 </LinkButton>
               </div>

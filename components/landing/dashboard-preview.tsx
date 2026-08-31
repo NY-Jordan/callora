@@ -69,7 +69,7 @@ export function DashboardPreview() {
               </div>
               <div className="flex shrink-0 flex-col items-end gap-1">
                 <StatusBadge status={call.status} />
-                <span className="text-[11px] text-muted-foreground">{call.time}</span>
+                <span className="text-[11px] text-muted-foreground">{recentCalls[i]?.time}</span>
               </div>
             </motion.div>
           ))}

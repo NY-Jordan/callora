@@ -20,7 +20,7 @@ export type Translations = {
       title: string
       live: string
       stats: { calls: string; answered: string; escalated: string; followUps: string }
-      recentCalls: { caller: string; reason: string }[]
+      recentCalls: { caller: string; reason: string; time: string }[]
       banner: { title: string; subtitle: string }
     }
   }
@@ -113,6 +113,31 @@ export type Translations = {
     ctaPrimary: string
     ctaSecondary: string
   }
+  bookDemo: {
+    eyebrow: string
+    title: string
+    description: string
+    labels: {
+      name: string
+      email: string
+      practice: string
+      phone: string
+      date: string
+      timeSlot: string
+      notes: string
+    }
+    timeSlotOptions: [string, string, string]
+    submit: string
+    submitting: string
+    successTitle: string
+    successBody: string
+    errors: {
+      missingFields: string
+      invalidEmail: string
+      serverMisconfigured: string
+      sendFailed: string
+    }
+  }
   footer: {
     tagline: string
     productColumnTitle: string
@@ -153,9 +178,9 @@ const fr: Translations = {
       live: "En direct",
       stats: { calls: "Appels", answered: "Répondus", escalated: "Escaladés", followUps: "Relances" },
       recentCalls: [
-        { caller: "Nouveau patient", reason: "Intéressé par un détartrage" },
-        { caller: "Patient existant", reason: "Question sur un rendez-vous" },
-        { caller: "Urgent", reason: "Douleur dentaire sévère" },
+        { caller: "Nouveau patient", reason: "Intéressé par un détartrage", time: "il y a 2 min" },
+        { caller: "Patient existant", reason: "Question sur un rendez-vous", time: "il y a 14 min" },
+        { caller: "Urgent", reason: "Douleur dentaire sévère", time: "il y a 26 min" },
       ],
       banner: { title: "81 % des appels traités par Ora", subtitle: "Aucun appel laissé sans réponse" },
     },
@@ -308,6 +333,33 @@ const fr: Translations = {
     ctaPrimary: "Réserver une démo",
     ctaSecondary: "Essayer Ora",
   },
+  bookDemo: {
+    eyebrow: "Réserver une démo",
+    title: "Planifiez votre démo avec l'équipe Callora.",
+    description:
+      "Indiquez vos disponibilités, nous vous recontactons pour confirmer un créneau qui vous convient.",
+    labels: {
+      name: "Nom complet",
+      email: "Email professionnel",
+      practice: "Nom du cabinet",
+      phone: "Téléphone (optionnel)",
+      date: "Date souhaitée",
+      timeSlot: "Créneau horaire souhaité",
+      notes: "Autres disponibilités ou précisions (optionnel)",
+    },
+    timeSlotOptions: ["Matin (9h–12h)", "Après-midi (12h–17h)", "Fin de journée (17h–19h)"],
+    submit: "Envoyer la demande",
+    submitting: "Envoi en cours…",
+    successTitle: "Demande envoyée !",
+    successBody: "Merci ! Nous vous recontactons sous 24h ouvrées pour confirmer votre démo.",
+    errors: {
+      missingFields: "Merci de remplir les champs obligatoires.",
+      invalidEmail: "Merci d'indiquer une adresse email valide.",
+      serverMisconfigured:
+        "Le service d'envoi n'est pas configuré pour le moment. Contactez-nous directement.",
+      sendFailed: "Une erreur est survenue. Merci de réessayer ou de nous contacter directement.",
+    },
+  },
   footer: {
     tagline: "Ora, votre réceptionniste IA, veille à ce que chaque appel soit traité et chaque patient entendu.",
     productColumnTitle: "Produit",
@@ -344,9 +396,9 @@ const en: Translations = {
       live: "Live",
       stats: { calls: "Calls", answered: "Answered", escalated: "Escalated", followUps: "Follow-ups" },
       recentCalls: [
-        { caller: "New patient", reason: "Interested in a cleaning" },
-        { caller: "Existing patient", reason: "Appointment question" },
-        { caller: "Urgent", reason: "Severe tooth pain" },
+        { caller: "New patient", reason: "Interested in a cleaning", time: "2 min ago" },
+        { caller: "Existing patient", reason: "Appointment question", time: "14 min ago" },
+        { caller: "Urgent", reason: "Severe tooth pain", time: "26 min ago" },
       ],
       banner: { title: "81% answered by Ora", subtitle: "No call left waiting" },
     },
@@ -497,6 +549,32 @@ const en: Translations = {
     subhead: "Give your practice a receptionist that never needs a lunch break.",
     ctaPrimary: "Book a demo",
     ctaSecondary: "Try Ora",
+  },
+  bookDemo: {
+    eyebrow: "Book a demo",
+    title: "Schedule your demo with the Callora team.",
+    description:
+      "Share your availability and we'll get back to you to confirm a time that works for you.",
+    labels: {
+      name: "Full name",
+      email: "Work email",
+      practice: "Practice name",
+      phone: "Phone (optional)",
+      date: "Preferred date",
+      timeSlot: "Preferred time slot",
+      notes: "Other availability or details (optional)",
+    },
+    timeSlotOptions: ["Morning (9am–12pm)", "Afternoon (12pm–5pm)", "Late afternoon (5pm–7pm)"],
+    submit: "Send request",
+    submitting: "Sending…",
+    successTitle: "Request sent!",
+    successBody: "Thanks! We'll get back to you within 24 business hours to confirm your demo.",
+    errors: {
+      missingFields: "Please fill in the required fields.",
+      invalidEmail: "Please enter a valid email address.",
+      serverMisconfigured: "The email service isn't configured right now. Please contact us directly.",
+      sendFailed: "Something went wrong. Please try again or contact us directly.",
+    },
   },
   footer: {
     tagline: "Ora, your AI receptionist, makes sure every call is answered and every patient is heard.",
