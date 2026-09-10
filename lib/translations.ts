@@ -53,6 +53,25 @@ export type Translations = {
     status: string
     summary: string
     waiting: string
+    liveCta: string
+  }
+  browserTest: {
+    title: string
+    description: string
+    connecting: string
+    talkingTo: string
+    mute: string
+    unmute: string
+    endCall: string
+    callEnded: string
+    testAgain: string
+    tryAgain: string
+    close: string
+    notSyncedError: string
+    connectFailedError: string
+    micError: string
+    connectionCheckError: string
+    startFailedError: string
   }
   howItWorks: {
     eyebrow: string
@@ -227,6 +246,25 @@ const fr: Translations = {
     summary:
       "Votre équipe voit la demande du patient, ses coordonnées et le résumé complet de l'appel — prête à relancer sans avoir à réécouter l'appel.",
     waiting: "En attente de la fin de l'appel…",
+    liveCta: "Parler à Ora maintenant",
+  },
+  browserTest: {
+    title: "Testez Ora en direct",
+    description: "Autorisez le micro et parlez avec Ora, notre réceptionniste IA — directement dans votre navigateur.",
+    connecting: "Connexion en cours…",
+    talkingTo: "Vous parlez avec Ora",
+    mute: "Couper le micro",
+    unmute: "Réactiver le micro",
+    endCall: "Raccrocher",
+    callEnded: "Appel terminé.",
+    testAgain: "Retester",
+    tryAgain: "Réessayer",
+    close: "Fermer",
+    notSyncedError: "La démo n'est pas disponible pour le moment.",
+    connectFailedError: "La connexion a échoué. Merci de réessayer.",
+    micError: "Impossible d'accéder au micro. Vérifiez les autorisations de votre navigateur.",
+    connectionCheckError: "Un problème de connexion est survenu.",
+    startFailedError: "Impossible de démarrer l'appel. Merci de réessayer.",
   },
   howItWorks: {
     eyebrow: "Comment ça marche",
@@ -444,6 +482,25 @@ const en: Translations = {
     summary:
       "Your team sees the patient's request, contact details, and full call summary — ready to follow up without replaying the call.",
     waiting: "Waiting for the call to complete…",
+    liveCta: "Talk to Ora now",
+  },
+  browserTest: {
+    title: "Test Ora live",
+    description: "Allow microphone access and talk to Ora, our AI receptionist — right in your browser.",
+    connecting: "Connecting…",
+    talkingTo: "You're talking to Ora",
+    mute: "Mute",
+    unmute: "Unmute",
+    endCall: "Hang up",
+    callEnded: "Call ended.",
+    testAgain: "Test again",
+    tryAgain: "Try again",
+    close: "Close",
+    notSyncedError: "The demo isn't available right now.",
+    connectFailedError: "Connection failed. Please try again.",
+    micError: "Couldn't access the microphone. Check your browser permissions.",
+    connectionCheckError: "A connection issue occurred.",
+    startFailedError: "Couldn't start the call. Please try again.",
   },
   howItWorks: {
     eyebrow: "How it works",

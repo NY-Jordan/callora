@@ -2,10 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion, useInView } from "framer-motion"
-import { ClipboardCheck, PhoneCall, RotateCcw, Sparkles } from "lucide-react"
+import { ClipboardCheck, MicIcon, PhoneCall, RotateCcw, Sparkles } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
 import { callDemoSpeakers } from "@/lib/mock-data"
 
+import { BrowserTestCallDialog } from "./browser-test-call-dialog"
 import { useLanguage } from "./language-provider"
 import { SectionHeading } from "./section-heading"
 
@@ -18,6 +20,7 @@ export function CallDemo() {
   const inView = useInView(containerRef, { once: true, margin: "-100px" })
   const [visibleCount, setVisibleCount] = useState(0)
   const [showResult, setShowResult] = useState(false)
+  const [liveCallOpen, setLiveCallOpen] = useState(false)
   const timeouts = useRef<ReturnType<typeof setTimeout>[]>([])
 
   const clearTimers = () => {
@@ -172,7 +175,16 @@ export function CallDemo() {
             )}
           </AnimatePresence>
         </div>
+
+        <div className="flex justify-center">
+          <Button size="lg" className="gap-2" onPress={() => setLiveCallOpen(true)}>
+            <MicIcon className="size-4" />
+            {t.callDemo.liveCta}
+          </Button>
+        </div>
       </div>
+
+      <BrowserTestCallDialog open={liveCallOpen} onOpenChange={setLiveCallOpen} />
     </section>
   )
 }
