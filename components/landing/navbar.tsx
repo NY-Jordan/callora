@@ -5,14 +5,16 @@ import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
-import { LinkButton } from "@/components/ui/button"
+import { Button, LinkButton } from "@/components/ui/button"
 
+import { useBrowserCall } from "./browser-call-provider"
 import { LanguageSwitcher } from "./language-switcher"
 import { useLanguage } from "./language-provider"
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const { t } = useLanguage()
+  const { openCall } = useBrowserCall()
 
   const navLinks = [
     { label: t.nav.product, href: "#product" },
@@ -49,9 +51,9 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <LanguageSwitcher />
-          <LinkButton href="#demo" variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" onPress={openCall}>
             {t.nav.tryOra}
-          </LinkButton>
+          </Button>
           <LinkButton href="#book-demo" variant="default" size="sm">
             {t.nav.bookDemo}
           </LinkButton>
@@ -92,9 +94,16 @@ export function Navbar() {
                 </a>
               ))}
               <div className="mt-2 flex flex-col gap-2">
-                <LinkButton href="#demo" variant="outline" size="sm" onPress={() => setOpen(false)}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onPress={() => {
+                    setOpen(false)
+                    openCall()
+                  }}
+                >
                   {t.nav.tryOra}
-                </LinkButton>
+                </Button>
                 <LinkButton href="#book-demo" variant="default" size="sm" onPress={() => setOpen(false)}>
                   {t.nav.bookDemo}
                 </LinkButton>

@@ -7,7 +7,7 @@ import { ClipboardCheck, MicIcon, PhoneCall, RotateCcw, Sparkles } from "lucide-
 import { Button } from "@/components/ui/button"
 import { callDemoSpeakers } from "@/lib/mock-data"
 
-import { BrowserTestCallDialog } from "./browser-test-call-dialog"
+import { useBrowserCall } from "./browser-call-provider"
 import { useLanguage } from "./language-provider"
 import { SectionHeading } from "./section-heading"
 
@@ -20,7 +20,7 @@ export function CallDemo() {
   const inView = useInView(containerRef, { once: true, margin: "-100px" })
   const [visibleCount, setVisibleCount] = useState(0)
   const [showResult, setShowResult] = useState(false)
-  const [liveCallOpen, setLiveCallOpen] = useState(false)
+  const { openCall, canCall, remainingSeconds } = useBrowserCall()
   const timeouts = useRef<ReturnType<typeof setTimeout>[]>([])
 
   const clearTimers = () => {
@@ -65,6 +65,20 @@ export function CallDemo() {
           title={t.callDemo.title}
           description={t.callDemo.description}
         />
+
+        <div className="flex flex-col items-center gap-4 rounded-2xl border border-teal/30 bg-teal-soft/40 px-6 py-8 text-center">
+          <span className="relative flex size-2.5">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-teal opacity-75" />
+            <span className="relative inline-flex size-2.5 rounded-full bg-teal" />
+          </span>
+          <p className="font-heading text-lg font-semibold text-foreground">{t.browserTest.title}</p>
+          <Button size="lg" className="gap-2" onPress={openCall} isDisabled={!canCall}>
+            <MicIcon className="size-4" />
+            {canCall
+              ? t.callDemo.liveCta
+              : t.browserTest.cooldownLabel.replace("{seconds}", String(remainingSeconds))}
+          </Button>
+        </div>
 
         <div ref={containerRef} className="grid gap-6 lg:grid-cols-[1fr_0.85fr] lg:items-start">
           <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
@@ -175,16 +189,7 @@ export function CallDemo() {
             )}
           </AnimatePresence>
         </div>
-
-        <div className="flex justify-center">
-          <Button size="lg" className="gap-2" onPress={() => setLiveCallOpen(true)}>
-            <MicIcon className="size-4" />
-            {t.callDemo.liveCta}
-          </Button>
-        </div>
       </div>
-
-      <BrowserTestCallDialog open={liveCallOpen} onOpenChange={setLiveCallOpen} />
     </section>
   )
 }

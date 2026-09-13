@@ -5,6 +5,8 @@ import type { Call, INotification, TelnyxRTC } from "@telnyx/webrtc"
 
 import { useLanguage } from "@/components/landing/language-provider"
 
+import { useCallCooldown } from "./call-cooldown"
+
 export type BrowserCallStatus = "idle" | "connecting" | "ringing" | "active" | "ended" | "error"
 
 export const REMOTE_AUDIO_ELEMENT_ID = "browser-test-call-audio"
@@ -23,6 +25,7 @@ const CONNECT_TIMEOUT_MS = 20_000
  */
 export function useBrowserTestCall(assistantId: string | null) {
   const { t } = useLanguage()
+  const { canCall, remainingSeconds, markCallStarted } = useCallCooldown()
   const [status, setStatus] = React.useState<BrowserCallStatus>("idle")
   const [error, setError] = React.useState<string | null>(null)
   const [muted, setMuted] = React.useState(false)
@@ -61,9 +64,16 @@ export function useBrowserTestCall(assistantId: string | null) {
       return
     }
 
+    if (!canCall) {
+      setError(t.browserTest.cooldownError.replace("{seconds}", String(remainingSeconds)))
+      setStatus("error")
+      return
+    }
+
     setError(null)
     setMuted(false)
     setStatus("connecting")
+    markCallStarted()
 
     try {
       const { TelnyxRTC: TelnyxRTCConstructor, NOTIFICATION_TYPE } = await import("@telnyx/webrtc")
@@ -114,7 +124,7 @@ export function useBrowserTestCall(assistantId: string | null) {
     } catch {
       fail(t.browserTest.startFailedError)
     }
-  }, [assistantId, cleanup, clearConnectTimeout, fail, t])
+  }, [assistantId, canCall, remainingSeconds, markCallStarted, cleanup, clearConnectTimeout, fail, t])
 
   const stop = React.useCallback(() => {
     cleanup()
