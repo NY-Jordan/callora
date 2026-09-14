@@ -72,7 +72,7 @@ export function CallDemo() {
             <span className="relative inline-flex size-2.5 rounded-full bg-teal" />
           </span>
           <p className="font-heading text-lg font-semibold text-foreground">{t.browserTest.title}</p>
-          <Button size="lg" className="gap-2" onPress={openCall} isDisabled={!canCall}>
+          <Button size="lg" isDisabled className="gap-2"  >
             <MicIcon className="size-4" />
             {canCall
               ? t.callDemo.liveCta

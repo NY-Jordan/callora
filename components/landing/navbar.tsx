@@ -51,7 +51,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <LanguageSwitcher />
-          <Button variant="ghost" size="sm" onPress={openCall}>
+          <Button isDisabled variant="ghost" size="sm" >
             {t.nav.tryOra}
           </Button>
           <LinkButton href="#book-demo" variant="default" size="sm">
@@ -96,11 +96,9 @@ export function Navbar() {
               <div className="mt-2 flex flex-col gap-2">
                 <Button
                   variant="outline"
+                  isDisabled
                   size="sm"
-                  onPress={() => {
-                    setOpen(false)
-                    openCall()
-                  }}
+                 
                 >
                   {t.nav.tryOra}
                 </Button>
