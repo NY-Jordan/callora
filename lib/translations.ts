@@ -6,7 +6,6 @@ export type Translations = {
     howItWorks: string
     pricing: string
     faq: string
-    tryOra: string
     bookDemo: string
   }
   hero: {
@@ -14,15 +13,11 @@ export type Translations = {
     headline: string
     subhead: string
     ctaPrimary: string
-    ctaSecondary: string
     badges: [string, string, string]
-    dashboard: {
-      title: string
-      live: string
-      stats: { calls: string; answered: string; escalated: string; followUps: string }
-      recentCalls: { caller: string; reason: string; time: string }[]
-      banner: { title: string; subtitle: string }
-    }
+  }
+  videoDemo: {
+    eyebrow: string
+    caption: string
   }
   trust: {
     title: string
@@ -53,27 +48,6 @@ export type Translations = {
     status: string
     summary: string
     waiting: string
-    liveCta: string
-  }
-  browserTest: {
-    title: string
-    description: string
-    connecting: string
-    talkingTo: string
-    mute: string
-    unmute: string
-    endCall: string
-    callEnded: string
-    testAgain: string
-    tryAgain: string
-    close: string
-    notSyncedError: string
-    connectFailedError: string
-    micError: string
-    connectionCheckError: string
-    startFailedError: string
-    cooldownError: string
-    cooldownLabel: string
   }
   howItWorks: {
     eyebrow: string
@@ -132,7 +106,6 @@ export type Translations = {
     title: string
     subhead: string
     ctaPrimary: string
-    ctaSecondary: string
   }
   bookDemo: {
     eyebrow: string
@@ -179,7 +152,6 @@ const fr: Translations = {
     howItWorks: "Comment ça marche",
     pricing: "Tarifs",
     faq: "FAQ",
-    tryOra: "Essayer Ora",
     bookDemo: "Réserver une démo",
   },
   hero: {
@@ -188,23 +160,15 @@ const fr: Translations = {
     subhead:
       "Ora, votre réceptionniste IA, répond aux appels 24h/24 et 7j/7, traite les demandes courantes des patients et tient votre équipe informée — même quand votre accueil est débordé.",
     ctaPrimary: "Réserver une démo",
-    ctaSecondary: "Essayer Ora",
     badges: [
       "Aucun matériel à installer",
       "Opérationnel en quelques jours",
       "Conçu pour les cabinets européens",
     ],
-    dashboard: {
-      title: "Appels du jour",
-      live: "En direct",
-      stats: { calls: "Appels", answered: "Répondus", escalated: "Escaladés", followUps: "Relances" },
-      recentCalls: [
-        { caller: "Nouveau patient", reason: "Intéressé par un détartrage", time: "il y a 2 min" },
-        { caller: "Patient existant", reason: "Question sur un rendez-vous", time: "il y a 14 min" },
-        { caller: "Urgent", reason: "Douleur dentaire sévère", time: "il y a 26 min" },
-      ],
-      banner: { title: "81 % des appels traités par Ora", subtitle: "Aucun appel laissé sans réponse" },
-    },
+  },
+  videoDemo: {
+    eyebrow: "Regarder",
+    caption: "Découvrez comment Ora répond à un appel réel.",
   },
   trust: {
     title: "Conçu pour les cabinets dentaires modernes",
@@ -248,27 +212,6 @@ const fr: Translations = {
     summary:
       "Votre équipe voit la demande du patient, ses coordonnées et le résumé complet de l'appel — prête à relancer sans avoir à réécouter l'appel.",
     waiting: "En attente de la fin de l'appel…",
-    liveCta: "Parler à Ora maintenant",
-  },
-  browserTest: {
-    title: "Testez Ora en direct",
-    description: "Autorisez le micro et parlez avec Ora, notre réceptionniste IA — directement dans votre navigateur.",
-    connecting: "Connexion en cours…",
-    talkingTo: "Vous parlez avec Ora",
-    mute: "Couper le micro",
-    unmute: "Réactiver le micro",
-    endCall: "Raccrocher",
-    callEnded: "Appel terminé.",
-    testAgain: "Retester",
-    tryAgain: "Réessayer",
-    close: "Fermer",
-    notSyncedError: "La démo n'est pas disponible pour le moment.",
-    connectFailedError: "La connexion a échoué. Merci de réessayer.",
-    micError: "Impossible d'accéder au micro. Vérifiez les autorisations de votre navigateur.",
-    connectionCheckError: "Un problème de connexion est survenu.",
-    startFailedError: "Impossible de démarrer l'appel. Merci de réessayer.",
-    cooldownError: "Merci de patienter {seconds}s avant de retester Ora.",
-    cooldownLabel: "Réessayez dans {seconds}s",
   },
   howItWorks: {
     eyebrow: "Comment ça marche",
@@ -373,7 +316,6 @@ const fr: Translations = {
     title: "Arrêtez d'envoyer vos patients sur répondeur.",
     subhead: "Offrez à votre cabinet une réceptionniste qui ne prend jamais de pause déjeuner.",
     ctaPrimary: "Réserver une démo",
-    ctaSecondary: "Essayer Ora",
   },
   bookDemo: {
     eyebrow: "Réserver une démo",
@@ -422,7 +364,6 @@ const en: Translations = {
     howItWorks: "How it works",
     pricing: "Pricing",
     faq: "FAQ",
-    tryOra: "Try Ora",
     bookDemo: "Book a demo",
   },
   hero: {
@@ -431,19 +372,11 @@ const en: Translations = {
     subhead:
       "Ora, your AI receptionist, answers calls 24/7, handles routine patient requests, and keeps your team informed — even when your front desk is busy.",
     ctaPrimary: "Book a demo",
-    ctaSecondary: "Try Ora",
     badges: ["No hardware to install", "Live in days", "Built for European practices"],
-    dashboard: {
-      title: "Today's calls",
-      live: "Live",
-      stats: { calls: "Calls", answered: "Answered", escalated: "Escalated", followUps: "Follow-ups" },
-      recentCalls: [
-        { caller: "New patient", reason: "Interested in a cleaning", time: "2 min ago" },
-        { caller: "Existing patient", reason: "Appointment question", time: "14 min ago" },
-        { caller: "Urgent", reason: "Severe tooth pain", time: "26 min ago" },
-      ],
-      banner: { title: "81% answered by Ora", subtitle: "No call left waiting" },
-    },
+  },
+  videoDemo: {
+    eyebrow: "Watch now",
+    caption: "See how Ora answers a real call.",
   },
   trust: {
     title: "Built for modern dental practices",
@@ -486,27 +419,6 @@ const en: Translations = {
     summary:
       "Your team sees the patient's request, contact details, and full call summary — ready to follow up without replaying the call.",
     waiting: "Waiting for the call to complete…",
-    liveCta: "Talk to Ora now",
-  },
-  browserTest: {
-    title: "Test Ora live",
-    description: "Allow microphone access and talk to Ora, our AI receptionist — right in your browser.",
-    connecting: "Connecting…",
-    talkingTo: "You're talking to Ora",
-    mute: "Mute",
-    unmute: "Unmute",
-    endCall: "Hang up",
-    callEnded: "Call ended.",
-    testAgain: "Test again",
-    tryAgain: "Try again",
-    close: "Close",
-    notSyncedError: "The demo isn't available right now.",
-    connectFailedError: "Connection failed. Please try again.",
-    micError: "Couldn't access the microphone. Check your browser permissions.",
-    connectionCheckError: "A connection issue occurred.",
-    startFailedError: "Couldn't start the call. Please try again.",
-    cooldownError: "Please wait {seconds}s before testing Ora again.",
-    cooldownLabel: "Retry in {seconds}s",
   },
   howItWorks: {
     eyebrow: "How it works",
@@ -611,7 +523,6 @@ const en: Translations = {
     title: "Stop sending patients to voicemail.",
     subhead: "Give your practice a receptionist that never needs a lunch break.",
     ctaPrimary: "Book a demo",
-    ctaSecondary: "Try Ora",
   },
   bookDemo: {
     eyebrow: "Book a demo",

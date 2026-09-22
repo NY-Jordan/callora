@@ -50,7 +50,21 @@ export function Footer() {
 
         <div className="flex flex-col gap-3 border-t border-border/70 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>{t.footer.copyright}</p>
-          <p>{t.footer.region}</p>
+          <div className="flex items-center gap-4">
+            <a
+              href="/conditions-generales-utilisation"
+              className="transition-colors hover:text-foreground"
+            >
+              CGU
+            </a>
+            <a
+              href="/politique-de-confidentialite"
+              className="transition-colors hover:text-foreground"
+            >
+              Politique de confidentialité
+            </a>
+            <p>{t.footer.region}</p>
+          </div>
         </div>
       </div>
     </footer>

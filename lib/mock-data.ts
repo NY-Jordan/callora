@@ -26,21 +26,6 @@ export const statusStyles: Record<
   },
 }
 
-export const todayStats = {
-  totalCalls: 127,
-  answeredByAI: 103,
-  escalated: 18,
-  followUps: 6,
-}
-
-// Structural data only — caller/reason/time copy lives in lib/translations.ts,
-// keyed by the same index/order as these arrays.
-export const heroRecentCalls: { id: string; status: CallStatus }[] = [
-  { id: "c-1", status: "resolved" },
-  { id: "c-2", status: "transferred" },
-  { id: "c-3", status: "escalated" },
-]
-
 export const dashboardStatValues = ["127", "103", "8", "95"]
 
 export const dashboardCalls: {
