@@ -20,7 +20,7 @@ export function CallDemo() {
   const inView = useInView(containerRef, { once: true, margin: "-100px" })
   const [visibleCount, setVisibleCount] = useState(0)
   const [showResult, setShowResult] = useState(false)
-  const { openCall, canCall, remainingSeconds } = useBrowserCall()
+  const { openCall } = useBrowserCall()
   const timeouts = useRef<ReturnType<typeof setTimeout>[]>([])
 
   const clearTimers = () => {
@@ -73,11 +73,9 @@ export function CallDemo() {
           </span>
           <p className="font-heading text-lg font-semibold text-foreground">{t.browserTest.title}</p>
           <p className="max-w-md text-sm text-muted-foreground">{t.browserTest.description}</p>
-          <Button size="lg" className="gap-2" onPress={openCall} isDisabled={!canCall}>
+          <Button size="lg" className="gap-2" onPress={openCall}>
             <MicIcon className="size-4" />
-            {canCall
-              ? t.callDemo.liveCta
-              : t.browserTest.cooldownLabel.replace("{seconds}", String(remainingSeconds))}
+            {t.callDemo.liveCta}
           </Button>
         </div>
 

@@ -69,8 +69,6 @@ export type Translations = {
     micError: string
     connectionCheckError: string
     startFailedError: string
-    cooldownError: string
-    cooldownLabel: string
   }
   howItWorks: {
     eyebrow: string
@@ -257,8 +255,6 @@ const fr: Translations = {
     micError: "Impossible d'accéder au micro. Vérifiez les autorisations de votre navigateur.",
     connectionCheckError: "Un problème de connexion est survenu.",
     startFailedError: "Impossible de démarrer l'appel. Merci de réessayer.",
-    cooldownError: "Merci de patienter {seconds}s avant de retester Ora.",
-    cooldownLabel: "Réessayez dans {seconds}s",
   },
   howItWorks: {
     eyebrow: "Comment ça marche",
@@ -488,8 +484,6 @@ const en: Translations = {
     micError: "Couldn't access the microphone. Check your browser permissions.",
     connectionCheckError: "A connection issue occurred.",
     startFailedError: "Couldn't start the call. Please try again.",
-    cooldownError: "Please wait {seconds}s before testing Ora again.",
-    cooldownLabel: "Retry in {seconds}s",
   },
   howItWorks: {
     eyebrow: "How it works",

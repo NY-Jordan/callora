@@ -2,14 +2,10 @@
 
 import { createContext, useCallback, useContext, useState } from "react"
 
-import { useCallCooldown } from "@/lib/call-cooldown"
-
 import { BrowserTestCallDialog } from "./browser-test-call-dialog"
 
 type BrowserCallContextValue = {
   openCall: () => void
-  canCall: boolean
-  remainingSeconds: number
 }
 
 const BrowserCallContext = createContext<BrowserCallContextValue | null>(null)
@@ -19,11 +15,10 @@ const BrowserCallContext = createContext<BrowserCallContextValue | null>(null)
 // exact same real Telnyx call instead of just scrolling to a section.
 export function BrowserCallProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
-  const { canCall, remainingSeconds } = useCallCooldown()
   const openCall = useCallback(() => setOpen(true), [])
 
   return (
-    <BrowserCallContext.Provider value={{ openCall, canCall, remainingSeconds }}>
+    <BrowserCallContext.Provider value={{ openCall }}>
       {children}
       <BrowserTestCallDialog open={open} onOpenChange={setOpen} />
     </BrowserCallContext.Provider>
