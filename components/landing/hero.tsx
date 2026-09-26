@@ -11,7 +11,7 @@ import { VideoDemo } from "./video-demo"
 
 export function Hero() {
   const { t } = useLanguage()
-  const { openCall } = useBrowserCall()
+  const { openCall, callEnabled } = useBrowserCall()
 
   return (
     <section id="top" className="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28 lg:pt-28">
@@ -57,7 +57,7 @@ export function Hero() {
               {t.hero.ctaPrimary}
               <ArrowRight className="size-4" />
             </LinkButton>
-            <Button variant="outline" size="lg" className="gap-2" onPress={openCall}>
+            <Button variant="outline" size="lg" className="gap-2" onPress={openCall} isDisabled={!callEnabled}>
               <span className="flex size-5 items-center justify-center rounded-full bg-teal-soft text-teal-foreground">
                 <PhoneCall className="size-3" strokeWidth={2.5} />
               </span>

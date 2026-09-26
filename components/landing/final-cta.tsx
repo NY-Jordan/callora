@@ -10,7 +10,7 @@ import { useLanguage } from "./language-provider"
 
 export function FinalCta() {
   const { t } = useLanguage()
-  const { openCall } = useBrowserCall()
+  const { openCall, callEnabled } = useBrowserCall()
 
   return (
     <section className="relative overflow-hidden py-24 sm:py-28">
@@ -32,7 +32,7 @@ export function FinalCta() {
               size="lg"
               variant="outline"
               className="gap-2 border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white"
-              onPress={openCall}
+              onPress={openCall} isDisabled={!callEnabled}
             >
               <span className="flex size-5 items-center justify-center rounded-full bg-white/15 text-white">
                 <PhoneCall className="size-3" strokeWidth={2.5} />

@@ -14,7 +14,7 @@ import { useLanguage } from "./language-provider"
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const { t } = useLanguage()
-  const { openCall } = useBrowserCall()
+  const { openCall, callEnabled } = useBrowserCall()
 
   const navLinks = [
     { label: t.nav.product, href: "#product" },
@@ -51,7 +51,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <LanguageSwitcher />
-          <Button variant="ghost" size="sm" onPress={openCall}>
+          <Button variant="ghost" size="sm" onPress={openCall} isDisabled={!callEnabled}>
             {t.nav.tryOra}
           </Button>
           <LinkButton href="#book-demo" variant="default" size="sm">
@@ -97,6 +97,7 @@ export function Navbar() {
                 <Button
                   variant="outline"
                   size="sm"
+                  isDisabled={!callEnabled}
                   onPress={() => {
                     setOpen(false)
                     openCall()

@@ -3,7 +3,7 @@
 // domain is confirmed — everything below derives from it.
 export const siteConfig = {
   name: "Callora",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://callora.ai",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://callora.agency",
   defaultLocale: "fr" as const,
   locales: ["fr", "en"] as const,
   social: {
