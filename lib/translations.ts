@@ -4,6 +4,7 @@ export type Translations = {
   nav: {
     product: string
     howItWorks: string
+    industries: string
     pricing: string
     faq: string
     tryOra: string
@@ -41,12 +42,12 @@ export type Translations = {
     incomingCall: string
     oraSubtitle: string
     replay: string
-    speakerPatient: string
+    speakerCaller: string
     speakerOra: string
     script: { text: string }[]
     synced: string
     newRequest: string
-    cleaning: string
+    requestLabel: string
     status: string
     summary: string
     waiting: string
@@ -85,6 +86,19 @@ export type Translations = {
     comingNext: string[]
     comingNextNote: string
   }
+  industries: {
+    eyebrow: string
+    title: string
+    description: string
+    disclaimer: string
+    viewPage: string
+  }
+  industryFallback: {
+    title: string
+    description: string
+    note: string
+    cta: string
+  }
   dashboardShowcase: {
     eyebrow: string
     title: string
@@ -112,8 +126,14 @@ export type Translations = {
     title: string
     description: string
     badge: string
-    startingAt: string
-    perMonth: string
+    rateValue: string
+    ratePerMinute: string
+    calculator: {
+      label: string
+      inputLabel: string
+      resultLabel: string
+      helper: string
+    }
     features: string[]
     cta: string
     note: string
@@ -172,22 +192,23 @@ const fr: Translations = {
   nav: {
     product: "Produit",
     howItWorks: "Comment ça marche",
+    industries: "Secteurs",
     pricing: "Tarifs",
     faq: "FAQ",
     tryOra: "Essayer Ora",
     bookDemo: "Réserver une démo",
   },
   hero: {
-    eyebrow: "Découvrez Ora — votre réceptionniste IA",
-    headline: "Ne manquez plus jamais un appel patient.",
+    eyebrow: "Ne laissez plus vos appels et demandes sans réponse",
+    headline: "Votre équipe ne peut pas répondre à tout. Callora prend le relais.",
     subhead:
-      "Ora, votre réceptionniste IA, répond aux appels 24h/24 et 7j/7, traite les demandes courantes des patients et tient votre équipe informée — même quand votre accueil est débordé.",
+      "Répondre aux appels, traiter les demandes, prendre des messages et faciliter les rendez-vous — même lorsque votre équipe est occupée, fermée ou débordée.",
     ctaPrimary: "Réserver une démo",
-    ctaSecondary: "Essayer Ora",
+    ctaSecondary: "Voir comment ça fonctionne",
     badges: [
       "Aucun matériel à installer",
       "Opérationnel en quelques jours",
-      "Conçu pour les cabinets européens",
+      "S'adapte à votre secteur d'activité",
     ],
   },
   videoDemo: {
@@ -195,52 +216,52 @@ const fr: Translations = {
     caption: "Découvrez comment Ora répond à un appel réel.",
   },
   trust: {
-    title: "Conçu pour les cabinets dentaires modernes",
-    practices: ["Cabinet Un", "Groupe Dentaire", "Clinique du Sourire", "Cabinet du Nord", "Dentaire Riverside"],
+    title: "Conçu pour les entreprises qui ne peuvent pas se permettre de manquer un appel",
+    practices: ["Cabinet Dentaire", "Agence Immo", "Salon Élégance", "Garage Autoplus", "Cabinet Juridique"],
     footnote:
       "Exemples fictifs — cohorte d'accès anticipé en cours de constitution, pas de clients réels.",
     indicators: ["Disponible 24/7", "Réponse rapide", "Transfert vers un humain", "Sécurisé par conception"],
   },
   problem: {
     eyebrow: "Le problème",
-    title: "Votre équipe ne peut pas répondre à tous les appels.",
+    title: "Votre équipe ne peut pas répondre à tous les appels et demandes.",
     description:
-      "Même le meilleur accueil a ses limites. Chaque sonnerie sans réponse est un moment décisif pour le patient à l'autre bout du fil.",
+      "Même la meilleure équipe a ses limites. Chaque appel ou message sans réponse est un moment décisif pour la personne en face.",
     situations: [
-      { title: "Accueil surchargé", detail: "Votre réceptionniste s'occupe déjà d'un autre patient." },
-      { title: "Hors horaires", detail: "Votre cabinet est fermé." },
-      { title: "Heures de pointe", detail: "Plusieurs patients appellent en même temps." },
+      { title: "Équipe occupée", detail: "Votre équipe s'occupe déjà d'un autre client." },
+      { title: "Hors horaires", detail: "Votre entreprise est fermée." },
+      { title: "Heures de pointe", detail: "Plusieurs personnes vous contactent en même temps." },
     ],
-    closing: "Chaque appel manqué est peut-être un patient que vous n'entendrez plus jamais.",
+    closing: "Chaque appel manqué est peut-être un client que vous n'entendrez plus jamais.",
   },
   callDemo: {
     eyebrow: "Démo produit",
-    title: "Voyez ce qui se passe quand un patient appelle.",
+    title: "Voyez ce qui se passe quand quelqu'un appelle.",
     description:
       "Une vraie conversation avec Ora — du premier son de la sonnerie jusqu'à une entrée claire et exploitable dans votre tableau de bord.",
     incomingCall: "Appel entrant",
-    oraSubtitle: "Ora — réceptionniste IA",
+    oraSubtitle: "Ora — assistant téléphonique",
     replay: "Rejouer",
-    speakerPatient: "Patient",
+    speakerCaller: "Appelant",
     speakerOra: "Ora",
     script: [
-      { text: "Bonjour, j'aimerais savoir si vous acceptez de nouveaux patients." },
-      { text: "Tout à fait, je peux vous aider. Quel type de rendez-vous recherchez-vous ?" },
-      { text: "J'ai besoin d'un détartrage." },
-      { text: "Parfait. Je note vos coordonnées et je transmets la demande à l'équipe du cabinet." },
+      { text: "Bonjour, j'aimerais savoir si vous avez de la disponibilité cette semaine." },
+      { text: "Tout à fait, je peux vous aider. Pour quel type de demande souhaitez-vous être recontacté ?" },
+      { text: "J'aurais besoin d'un rendez-vous, si possible en fin de semaine." },
+      { text: "Parfait. Je note vos coordonnées et je transmets votre demande à l'équipe." },
     ],
     synced: "Synchronisé avec le tableau de bord",
-    newRequest: "Nouvelle demande patient",
-    cleaning: "Détartrage",
+    newRequest: "Nouvelle demande client",
+    requestLabel: "Rendez-vous souhaité",
     status: "Statut : relance nécessaire",
     summary:
-      "Votre équipe voit la demande du patient, ses coordonnées et le résumé complet de l'appel — prête à relancer sans avoir à réécouter l'appel.",
+      "Votre équipe voit la demande, les coordonnées et le résumé complet de l'appel — prête à relancer sans avoir à réécouter l'appel.",
     waiting: "En attente de la fin de l'appel…",
     liveCta: "Parler à Ora maintenant",
   },
   browserTest: {
     title: "Testez Ora en direct",
-    description: "Autorisez le micro et parlez avec Ora, notre réceptionniste IA — directement dans votre navigateur.",
+    description: "Autorisez le micro et parlez avec Ora, l'assistant vocal de Callora — directement dans votre navigateur.",
     connecting: "Connexion en cours…",
     talkingTo: "Vous parlez avec Ora",
     mute: "Couper le micro",
@@ -260,48 +281,63 @@ const fr: Translations = {
     eyebrow: "Comment ça marche",
     title: "Opérationnel en trois étapes simples.",
     description:
-      "Pas de matériel compliqué. Pas de logiciel à installer dans votre cabinet. Votre équipe continue de travailler comme avant.",
+      "Pas de matériel compliqué. Pas de logiciel à installer dans votre entreprise. Votre équipe continue de travailler comme avant.",
     steps: [
-      { number: "01", title: "Connectez votre cabinet", detail: "Nous configurons votre ligne en quelques jours, pas en quelques mois." },
-      { number: "02", title: "Configurez Ora", detail: "Définissez comment Ora accueille les patients, ce qu'elle demande, et quand elle escalade." },
-      { number: "03", title: "Laissez Ora répondre à vos appels", detail: "Chaque appel est traité, enregistré et prêt à être consulté par votre équipe." },
+      { number: "01", title: "Connectez votre ligne", detail: "Nous configurons votre numéro en quelques jours, pas en quelques mois." },
+      { number: "02", title: "Configurez Ora", detail: "Définissez comment Ora accueille vos interlocuteurs, ce qu'elle demande, et quand elle escalade — selon votre activité." },
+      { number: "03", title: "Laissez Callora prendre le relais", detail: "Chaque appel et chaque demande sont traités, enregistrés et prêts à être consultés par votre équipe." },
     ],
   },
   features: {
-    eyebrow: "Ce qu'elle fait aujourd'hui",
+    eyebrow: "Ce que fait Callora",
     title: "Concentré sur l'essentiel avant tout.",
     description:
-      "Pas de liste de fonctionnalités interminable. Callora excelle dans la couverture d'appels — le reste viendra ensuite.",
+      "Pas de liste de fonctionnalités interminable. Callora excelle dans la prise en charge des appels et des demandes — le reste viendra ensuite.",
     items: [
-      { title: "Réponse aux appels 24/7", detail: "Vos patients joignent toujours quelqu'un." },
-      { title: "Traitement des appels par IA", detail: "Ora comprend les conversations naturelles." },
+      { title: "Réponse aux appels 24/7", detail: "Vos clients joignent toujours quelqu'un." },
+      { title: "Compréhension des demandes", detail: "Ora comprend les conversations naturelles et sait s'adapter à votre activité." },
       { title: "Résumés d'appels", detail: "Votre équipe voit exactement ce qui s'est passé." },
       { title: "Escalade intelligente", detail: "Les appels importants ou sensibles peuvent être transférés à votre équipe." },
-      { title: "Prise d'informations patient", detail: "Collecte les informations dont votre équipe a besoin." },
+      { title: "Prise d'informations", detail: "Collecte les informations dont votre équipe a besoin pour donner suite." },
       { title: "Tableau de bord des appels", detail: "Suivez les appels, leurs résultats et les relances." },
     ],
     comingNextLabel: "Bientôt disponible",
-    comingNext: ["Prise de rendez-vous", "Intégrations logiciels de gestion", "SMS", "Relances patients sortantes"],
-    comingNextNote: "Prévu pour de futures versions, à mesure que nous construisons un accueil IA complet.",
+    comingNext: ["Prise de rendez-vous", "Intégrations avec vos outils métier", "SMS & WhatsApp", "Relances clients sortantes"],
+    comingNextNote: "Prévu pour de futures versions, à mesure que nous construisons un assistant complet pour la relation client.",
+  },
+  industries: {
+    eyebrow: "Pour votre secteur",
+    title: "Une même plateforme, adaptée à votre activité.",
+    description:
+      "Callora s'ajuste au vocabulaire, aux horaires et aux workflows de votre métier. Voici quelques exemples parmi les secteurs que nous accompagnons.",
+    disclaimer: "Ces secteurs sont des exemples — pas une liste exhaustive.",
+    viewPage: "Voir la page dédiée",
+  },
+  industryFallback: {
+    title: "Vous ne trouvez pas votre secteur ?",
+    description:
+      "Ce n'est pas un problème. Callora s'adapte à votre activité, vos horaires, vos services et votre façon de travailler.",
+    note: "Expliquez-nous simplement comment vous gérez vos appels et vos demandes aujourd'hui. Nous verrons comment Callora peut s'intégrer à votre fonctionnement.",
+    cta: "Parler de mon activité",
   },
   dashboardShowcase: {
     eyebrow: "À l'intérieur de Callora",
     title: "Chaque appel, organisé dès qu'il se termine.",
     description:
-      "Une vue unique et claire de ce qui s'est passé dans votre cabinet — plus besoin de réécouter les enregistrements ni de deviner.",
+      "Une vue unique et claire de ce qui s'est passé dans votre entreprise — plus besoin de réécouter les enregistrements ni de deviner.",
     browserUrl: "app.callora.ai/overview",
-    sidebar: ["Aperçu", "Appels", "Patients", "Relances", "Ora", "Paramètres"],
+    sidebar: ["Aperçu", "Appels", "Contacts", "Relances", "Ora", "Paramètres"],
     overview: "Aperçu",
-    dateLine: "Mardi 25 août — Cabinet Dentaire Riverside",
+    dateLine: "Mardi 25 août — Riverside Solutions",
     statLabels: ["Appels aujourd'hui", "Répondus par Ora", "À traiter", "Résolus"],
     tableHeaders: { caller: "Appelant", reason: "Motif", status: "Statut", time: "Heure" },
     calls: [
-      { caller: "Nouveau patient", reason: "Intéressé par un détartrage" },
-      { caller: "Sophie M.", reason: "Question sur un rendez-vous" },
-      { caller: "Appelant inconnu", reason: "Douleur dentaire sévère" },
+      { caller: "Nouveau client", reason: "Intéressé par un rendez-vous" },
+      { caller: "Sophie M.", reason: "Question sur une réservation" },
+      { caller: "Appelant inconnu", reason: "Demande urgente" },
       { caller: "Marc D.", reason: "Demande de report" },
-      { caller: "Nouveau patient", reason: "Question sur la couverture d'assurance" },
-      { caller: "Claire B.", reason: "Consultation blanchiment" },
+      { caller: "Nouveau client", reason: "Question sur les tarifs" },
+      { caller: "Claire B.", reason: "Demande de devis" },
     ],
   },
   roi: {
@@ -310,54 +346,61 @@ const fr: Translations = {
     description:
       "Pas besoin de nouveaux chiffres pour savoir ce que coûte un appel manqué — juste d'en avoir moins.",
     missedTitle: "Appel manqué",
-    missedSteps: ["Appel manqué", "Aucune réponse", "Le patient appelle un autre cabinet"],
+    missedSteps: ["Appel manqué", "Aucune réponse", "Le client contacte un concurrent"],
     answeredTitle: "Appel traité",
-    answeredSteps: ["Appel répondu", "Ora traite la demande", "L'équipe reçoit le contexte complet", "Le patient reçoit une relance"],
+    answeredSteps: ["Appel répondu", "Ora traite la demande", "L'équipe reçoit le contexte complet", "Le client reçoit une relance"],
     disclaimer:
-      "Chaque cabinet est différent — ceci est le changement de résultat que Callora est conçu pour créer, pas un résultat garanti.",
+      "Chaque entreprise est différente — ceci est le changement de résultat que Callora est conçu pour créer, pas un résultat garanti.",
   },
   pricing: {
     eyebrow: "Tarifs",
-    title: "Des tarifs d'accès anticipé simples.",
+    title: "Vous ne payez que les appels traités.",
     description:
-      "Nous validons le marché avec nos premiers cabinets partenaires. Les tarifs évolueront avec le produit.",
+      "Pas d'abonnement forcé, pas de forfait figé. Un tarif simple à la minute, qui s'ajuste à votre volume d'appels réel.",
     badge: "Accès anticipé",
-    startingAt: "À partir de",
-    perMonth: "/ mois",
+    rateValue: "0,30 €",
+    ratePerMinute: "/ minute traitée",
+    calculator: {
+      label: "Estimez votre coût mensuel",
+      inputLabel: "Minutes d'appels traitées par mois",
+      resultLabel: "Coût estimé",
+      helper: "Basé sur 0,30 € par minute d'appel traitée par Ora. Sans engagement, résiliable à tout moment.",
+    },
     features: [
-      "Ora, votre réceptionniste IA",
-      "Traitement des appels",
+      "Ora, votre assistant téléphonique",
+      "Traitement des appels et des demandes",
       "Résumés d'appels",
       "Tableau de bord",
       "Escalade humaine",
       "Couverture 24/7",
     ],
     cta: "Obtenir l'accès anticipé",
-    note: "Tarifs d'accès anticipé réservés à nos premiers cabinets partenaires.",
+    note: "Tarifs d'accès anticipé réservés à nos premières entreprises partenaires.",
   },
   faq: {
     eyebrow: "FAQ",
-    title: "Les questions que se posent les cabinets.",
+    title: "Les questions que se posent nos clients.",
     items: [
       {
-        question: "Est-ce qu'Ora remplace notre réceptionniste ?",
+        question: "Est-ce que Callora remplace notre équipe ?",
         answer: "Non. Ora prend le relais quand votre équipe ne peut pas répondre, et peut transférer l'appel à votre personnel.",
       },
+      { question: "Callora convient-il à mon secteur d'activité ?", answer: "Très probablement. Callora s'adapte à de nombreux secteurs — santé, immobilier, beauté, automobile, services professionnels, et plus. Si votre secteur n'apparaît pas dans nos exemples, parlez-nous simplement de votre activité." },
       { question: "Ora fonctionne-t-elle en dehors des horaires d'ouverture ?", answer: "Oui." },
-      { question: "Les patients peuvent-ils parler naturellement avec Ora ?", answer: "Oui." },
+      { question: "Mes clients peuvent-ils parler naturellement avec Ora ?", answer: "Oui." },
       { question: "Ora peut-elle transférer les appels ?", answer: "Oui, lorsque cela est configuré." },
       { question: "Devons-nous installer un logiciel ?", answer: "Non. Le service fonctionne entièrement dans le cloud." },
       {
         question: "Ora prend-elle les rendez-vous ?",
         answer:
-          "La prise de rendez-vous et les intégrations avec les logiciels de gestion sont prévues pour de futures versions. Le produit actuel se concentre sur la réponse et le traitement des appels.",
+          "La prise de rendez-vous et les intégrations avec vos outils métier sont prévues pour de futures versions. Le produit actuel se concentre sur la réponse et le traitement des appels.",
       },
-      { question: "Pouvons-nous personnaliser ce qu'Ora dit ?", answer: "Oui." },
+      { question: "Pouvons-nous personnaliser ce que dit Ora ?", answer: "Oui." },
     ],
   },
   finalCta: {
-    title: "Arrêtez d'envoyer vos patients sur répondeur.",
-    subhead: "Offrez à votre cabinet une réceptionniste qui ne prend jamais de pause déjeuner.",
+    title: "Arrêtez d'envoyer vos appels sur répondeur.",
+    subhead: "Offrez à votre entreprise un assistant qui ne prend jamais de pause déjeuner.",
     ctaPrimary: "Réserver une démo",
     ctaSecondary: "Essayer Ora",
   },
@@ -369,7 +412,7 @@ const fr: Translations = {
     labels: {
       name: "Nom complet",
       email: "Email professionnel",
-      practice: "Nom du cabinet",
+      practice: "Nom de l'entreprise",
       phone: "Téléphone (optionnel)",
       date: "Date souhaitée",
       timeSlot: "Créneau horaire souhaité",
@@ -389,9 +432,9 @@ const fr: Translations = {
     },
   },
   footer: {
-    tagline: "Ora, votre réceptionniste IA, veille à ce que chaque appel soit traité et chaque patient entendu.",
+    tagline: "Callora veille à ce que chaque appel et chaque demande trouve une réponse — quelle que soit votre activité.",
     productColumnTitle: "Produit",
-    copyright: "© 2026 Callora. Conçu pour les cabinets dentaires européens.",
+    copyright: "© 2026 Callora. Tous droits réservés.",
     region: "France · Belgique · Suisse · Royaume-Uni",
   },
   statusLabels: {
@@ -406,70 +449,71 @@ const en: Translations = {
   nav: {
     product: "Product",
     howItWorks: "How it works",
+    industries: "Industries",
     pricing: "Pricing",
     faq: "FAQ",
     tryOra: "Try Ora",
     bookDemo: "Book a demo",
   },
   hero: {
-    eyebrow: "Meet Ora — your AI receptionist",
-    headline: "Never miss another patient call.",
+    eyebrow: "Never leave a call or request unanswered",
+    headline: "Your team can't answer everything. Callora picks up the rest.",
     subhead:
-      "Ora, your AI receptionist, answers calls 24/7, handles routine patient requests, and keeps your team informed — even when your front desk is busy.",
+      "Answer calls, handle requests, take messages, and make booking easier — even when your team is busy, closed, or swamped.",
     ctaPrimary: "Book a demo",
-    ctaSecondary: "Try Ora",
-    badges: ["No hardware to install", "Live in days", "Built for European practices"],
+    ctaSecondary: "See how it works",
+    badges: ["No hardware to install", "Live in days", "Adapts to your industry"],
   },
   videoDemo: {
     eyebrow: "Watch now",
     caption: "See how Ora answers a real call.",
   },
   trust: {
-    title: "Built for modern dental practices",
-    practices: ["Practice One", "Dental Group", "Smile Clinic", "Northgate Care", "Riverside Dental"],
+    title: "Built for businesses that can't afford to miss a call",
+    practices: ["Dental Practice", "Realty Group", "Élégance Salon", "Autoplus Garage", "Legal Partners"],
     footnote: "Illustrative placeholders — early-access cohort forming, not actual customers.",
     indicators: ["24/7 availability", "Fast response", "Human handoff", "Secure by design"],
   },
   problem: {
     eyebrow: "The problem",
-    title: "Your team can't answer every call.",
+    title: "Your team can't answer every call and request.",
     description:
-      "Even the best front desk has limits. Every ring that goes unanswered is a decision point for the patient on the other end.",
+      "Even the best team has limits. Every unanswered call or message is a decision point for the person on the other end.",
     situations: [
-      { title: "Busy front desk", detail: "Your receptionist is helping another patient." },
-      { title: "After hours", detail: "Your practice is closed." },
-      { title: "Peak hours", detail: "Multiple patients call at once." },
+      { title: "Busy team", detail: "Your team is already helping someone else." },
+      { title: "After hours", detail: "Your business is closed." },
+      { title: "Peak hours", detail: "Multiple people reach out at once." },
     ],
-    closing: "Every unanswered call is a patient you may never hear from again.",
+    closing: "Every unanswered call is a customer you may never hear from again.",
   },
   callDemo: {
     eyebrow: "Product demo",
-    title: "See what happens when a patient calls.",
+    title: "See what happens when someone calls.",
     description:
       "A real conversation with Ora — from the first ring to a clear, actionable entry in your dashboard.",
     incomingCall: "Incoming call",
-    oraSubtitle: "Ora — AI receptionist",
+    oraSubtitle: "Ora — phone assistant",
     replay: "Replay",
-    speakerPatient: "Patient",
+    speakerCaller: "Caller",
     speakerOra: "Ora",
     script: [
-      { text: "Hi, I'd like to know if you're accepting new patients." },
-      { text: "Absolutely. I can help with that. May I ask what type of appointment you're looking for?" },
-      { text: "I need a dental cleaning." },
-      { text: "Of course. I'll collect your details and send the request to the practice team." },
+      { text: "Hi, I'd like to know if you have any availability this week." },
+      { text: "Absolutely, I can help with that. What can we get you booked in for?" },
+      { text: "I'd need an appointment, ideally later in the week." },
+      { text: "Of course. I'll take your details and pass the request on to the team." },
     ],
     synced: "Synced to dashboard",
-    newRequest: "New patient request",
-    cleaning: "Cleaning",
+    newRequest: "New customer request",
+    requestLabel: "Requested appointment",
     status: "Status: Follow-up required",
     summary:
-      "Your team sees the patient's request, contact details, and full call summary — ready to follow up without replaying the call.",
+      "Your team sees the request, contact details, and full call summary — ready to follow up without replaying the call.",
     waiting: "Waiting for the call to complete…",
     liveCta: "Talk to Ora now",
   },
   browserTest: {
     title: "Test Ora live",
-    description: "Allow microphone access and talk to Ora, our AI receptionist — right in your browser.",
+    description: "Allow microphone access and talk to Ora, Callora's phone assistant — right in your browser.",
     connecting: "Connecting…",
     talkingTo: "You're talking to Ora",
     mute: "Mute",
@@ -489,48 +533,63 @@ const en: Translations = {
     eyebrow: "How it works",
     title: "Up and running in three simple steps.",
     description:
-      "No complicated hardware. No software to install in your practice. Your team keeps working the way it already does.",
+      "No complicated hardware. No software to install in your business. Your team keeps working the way it already does.",
     steps: [
-      { number: "01", title: "Connect your practice", detail: "We set up your practice number in days, not months." },
-      { number: "02", title: "Configure Ora", detail: "Define how Ora greets patients, what it asks, and when it escalates." },
-      { number: "03", title: "Let Ora answer your calls", detail: "Every call is answered, logged, and ready for your team to review." },
+      { number: "01", title: "Connect your line", detail: "We set up your number in days, not months." },
+      { number: "02", title: "Configure Ora", detail: "Define how Ora greets callers, what it asks, and when it escalates — tailored to your business." },
+      { number: "03", title: "Let Callora take the rest", detail: "Every call and request is answered, logged, and ready for your team to review." },
     ],
   },
   features: {
-    eyebrow: "What it does today",
+    eyebrow: "What Callora does",
     title: "Focused on the one thing that matters first.",
     description:
-      "No bloated feature list. Callora does call coverage extremely well — everything else comes later.",
+      "No bloated feature list. Callora does call and request handling extremely well — everything else comes later.",
     items: [
-      { title: "24/7 Call Answering", detail: "Your patients always reach someone." },
-      { title: "AI Call Handling", detail: "Ora understands natural conversations." },
-      { title: "Call Summaries", detail: "Your team sees exactly what happened." },
-      { title: "Smart Escalation", detail: "Important or sensitive calls can be routed to your team." },
-      { title: "Patient Intake", detail: "Collect the information your team needs." },
-      { title: "Call Dashboard", detail: "Monitor calls, outcomes and follow-ups." },
+      { title: "24/7 call answering", detail: "Your customers always reach someone." },
+      { title: "Understands requests", detail: "Ora follows natural conversations and adapts to your business." },
+      { title: "Call summaries", detail: "Your team sees exactly what happened." },
+      { title: "Smart escalation", detail: "Important or sensitive calls can be routed to your team." },
+      { title: "Information intake", detail: "Collects what your team needs to follow up." },
+      { title: "Call dashboard", detail: "Monitor calls, outcomes and follow-ups." },
     ],
     comingNextLabel: "Coming next",
-    comingNext: ["Appointment booking", "PMS integrations", "SMS", "Outbound patient follow-ups"],
-    comingNextNote: "Planned for future releases as we build toward a complete AI front desk.",
+    comingNext: ["Appointment booking", "Integrations with your tools", "SMS & WhatsApp", "Outbound customer follow-ups"],
+    comingNextNote: "Planned for future releases as we build toward a complete assistant for customer relationships.",
+  },
+  industries: {
+    eyebrow: "For your industry",
+    title: "One platform, adapted to your business.",
+    description:
+      "Callora adjusts to the language, hours, and workflows of your trade. Here are a few examples of the industries we support.",
+    disclaimer: "These are examples, not a complete list.",
+    viewPage: "View dedicated page",
+  },
+  industryFallback: {
+    title: "Don't see your industry?",
+    description:
+      "That's not a problem. Callora adapts to your business, your hours, your services, and the way you work.",
+    note: "Just tell us how you currently handle your calls and requests. We'll figure out how Callora fits into your workflow.",
+    cta: "Tell us about your business",
   },
   dashboardShowcase: {
     eyebrow: "Inside Callora",
     title: "Every call, organized the moment it ends.",
     description:
-      "A single, clear view of what happened across your practice — no replaying recordings, no guessing.",
+      "A single, clear view of what happened across your business — no replaying recordings, no guessing.",
     browserUrl: "app.callora.ai/overview",
-    sidebar: ["Overview", "Calls", "Patients", "Follow-ups", "Ora", "Settings"],
+    sidebar: ["Overview", "Calls", "Contacts", "Follow-ups", "Ora", "Settings"],
     overview: "Overview",
-    dateLine: "Tuesday, August 25 — Riverside Dental Practice",
+    dateLine: "Tuesday, August 25 — Riverside Solutions",
     statLabels: ["Calls today", "Answered by Ora", "Needs attention", "Resolved"],
     tableHeaders: { caller: "Caller", reason: "Reason", status: "Status", time: "Time" },
     calls: [
-      { caller: "New patient", reason: "Interested in a cleaning" },
-      { caller: "Sophie M.", reason: "Appointment question" },
-      { caller: "Unknown caller", reason: "Severe tooth pain" },
+      { caller: "New customer", reason: "Interested in booking" },
+      { caller: "Sophie M.", reason: "Reservation question" },
+      { caller: "Unknown caller", reason: "Urgent request" },
       { caller: "Marc D.", reason: "Reschedule request" },
-      { caller: "New patient", reason: "Insurance coverage question" },
-      { caller: "Claire B.", reason: "Whitening consultation" },
+      { caller: "New customer", reason: "Pricing question" },
+      { caller: "Claire B.", reason: "Quote request" },
     ],
   },
   roi: {
@@ -539,54 +598,61 @@ const en: Translations = {
     description:
       "You don't need new numbers to know what a missed call costs — you just need fewer of them.",
     missedTitle: "Missed call",
-    missedSteps: ["Missed call", "No response", "Patient calls another practice"],
+    missedSteps: ["Missed call", "No response", "Customer calls a competitor"],
     answeredTitle: "Answered call",
-    answeredSteps: ["Answered call", "Ora handles the request", "Team receives full context", "Patient gets a follow-up"],
+    answeredSteps: ["Answered call", "Ora handles the request", "Team receives full context", "Customer gets a follow-up"],
     disclaimer:
-      "Every practice is different — this is the outcome shift Callora is built to create, not a guaranteed result.",
+      "Every business is different — this is the outcome shift Callora is built to create, not a guaranteed result.",
   },
   pricing: {
     eyebrow: "Pricing",
-    title: "Simple early-access pricing.",
+    title: "You only pay for the calls handled.",
     description:
-      "We're validating the market with our first partner practices. Pricing will evolve as the product does.",
+      "No forced subscription, no fixed bundle. A simple per-minute rate that scales with your actual call volume.",
     badge: "Early access",
-    startingAt: "Starting at",
-    perMonth: "/ month",
+    rateValue: "€0.30",
+    ratePerMinute: "/ minute handled",
+    calculator: {
+      label: "Estimate your monthly cost",
+      inputLabel: "Call minutes handled per month",
+      resultLabel: "Estimated cost",
+      helper: "Based on €0.30 per minute of calls handled by Ora. No commitment, cancel anytime.",
+    },
     features: [
-      "Ora, your AI receptionist",
-      "Call handling",
+      "Ora, your phone assistant",
+      "Call and request handling",
       "Call summaries",
       "Dashboard",
       "Human escalation",
       "24/7 coverage",
     ],
     cta: "Get early access",
-    note: "Early-access pricing for our first partner practices.",
+    note: "Early-access pricing for our first partner businesses.",
   },
   faq: {
     eyebrow: "FAQ",
-    title: "Questions practices ask us.",
+    title: "Questions our customers ask.",
     items: [
       {
-        question: "Does Ora replace our receptionist?",
+        question: "Does Callora replace our team?",
         answer: "No. Ora handles calls when your team cannot and can escalate to your staff.",
       },
+      { question: "Does Callora work for my industry?", answer: "Very likely. Callora adapts to many industries — healthcare, real estate, beauty, automotive, professional services, and more. If your industry isn't in our examples, just tell us about your business." },
       { question: "Does Ora work after hours?", answer: "Yes." },
-      { question: "Can patients speak naturally with Ora?", answer: "Yes." },
+      { question: "Can my customers speak naturally with Ora?", answer: "Yes." },
       { question: "Can Ora transfer calls?", answer: "Yes, where configured." },
       { question: "Do we need to install software?", answer: "No. The service is cloud-based." },
       {
         question: "Does Ora book appointments?",
         answer:
-          "Appointment booking and PMS integrations are planned for later versions. The initial product focuses on call answering and handling.",
+          "Appointment booking and integrations with your tools are planned for later versions. The initial product focuses on call answering and handling.",
       },
       { question: "Can we customize what Ora says?", answer: "Yes." },
     ],
   },
   finalCta: {
-    title: "Stop sending patients to voicemail.",
-    subhead: "Give your practice a receptionist that never needs a lunch break.",
+    title: "Stop sending calls to voicemail.",
+    subhead: "Give your business an assistant that never needs a lunch break.",
     ctaPrimary: "Book a demo",
     ctaSecondary: "Try Ora",
   },
@@ -598,7 +664,7 @@ const en: Translations = {
     labels: {
       name: "Full name",
       email: "Work email",
-      practice: "Practice name",
+      practice: "Business name",
       phone: "Phone (optional)",
       date: "Preferred date",
       timeSlot: "Preferred time slot",
@@ -617,9 +683,9 @@ const en: Translations = {
     },
   },
   footer: {
-    tagline: "Ora, your AI receptionist, makes sure every call is answered and every patient is heard.",
+    tagline: "Callora makes sure every call and request finds a response — whatever your business.",
     productColumnTitle: "Product",
-    copyright: "© 2026 Callora. Built for European dental practices.",
+    copyright: "© 2026 Callora. All rights reserved.",
     region: "France · Belgium · Switzerland · UK",
   },
   statusLabels: {

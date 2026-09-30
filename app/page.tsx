@@ -7,6 +7,8 @@ import { FinalCta } from "@/components/landing/final-cta"
 import { Footer } from "@/components/landing/footer"
 import { Hero } from "@/components/landing/hero"
 import { HowItWorks } from "@/components/landing/how-it-works"
+import { IndustryFallback } from "@/components/landing/industry-fallback"
+import { IndustriesSection } from "@/components/landing/industries-section"
 import { Navbar } from "@/components/landing/navbar"
 import { Pricing } from "@/components/landing/pricing"
 import { ProblemSection } from "@/components/landing/problem-section"
@@ -33,6 +35,8 @@ export default function Home() {
         <CallDemo />
         <HowItWorks />
         <Features />
+        <IndustriesSection />
+        <IndustryFallback />
         <DashboardShowcase />
         <RoiSection />
         <Pricing />

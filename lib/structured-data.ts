@@ -13,7 +13,7 @@ export function organizationJsonLd() {
     url: siteConfig.url,
     logo: `${siteConfig.url}/logo.png`,
     description:
-      "Callora builds Ora, an AI receptionist for dental practices that answers calls 24/7 and keeps front-desk teams informed.",
+      "Callora is a platform of AI assistants that help businesses across industries answer calls and handle incoming requests when their team is unavailable.",
   }
 }
 
@@ -37,15 +37,15 @@ export function softwareApplicationJsonLd() {
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:
-      "Ora is an AI receptionist for dental practices: it answers patient calls 24/7, handles routine requests, and syncs call summaries to a dashboard.",
+      "Ora, Callora's phone assistant, answers business calls 24/7, handles routine requests, and syncs call summaries to a dashboard — adapting to each industry's workflow.",
     url: siteConfig.url,
     offers: {
       "@type": "Offer",
-      price: "149",
-      priceCurrency: "USD",
+      price: "0.30",
+      priceCurrency: "EUR",
       priceValidUntil: `${new Date().getFullYear() + 1}-12-31`,
       availability: "https://schema.org/InStock",
-      description: "Early-access pricing for first partner dental practices.",
+      description: "Usage-based early-access pricing: €0.30 per minute of calls handled, no fixed subscription.",
     },
   }
 }

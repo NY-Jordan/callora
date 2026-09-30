@@ -12,9 +12,9 @@ const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
 });
 
-const title = "Callora — Ne manquez plus jamais un appel patient";
+const title = "Callora — Ne laissez plus vos appels et demandes sans réponse";
 const description =
-  "Ora, la réceptionniste IA de Callora, est conçue pour les cabinets dentaires. Elle répond aux appels 24h/24 et 7j/7, traite les demandes courantes des patients et tient votre équipe informée — même quand votre accueil est débordé.";
+  "Callora aide les entreprises à répondre aux appels et aux demandes entrantes quand leur équipe n'est pas disponible : réponse aux appels, prise de messages, rendez-vous facilités — adapté à votre secteur d'activité.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
   description,
   applicationName: siteConfig.name,
   keywords: [
-    "réceptionniste IA",
-    "AI receptionist",
-    "réceptionniste IA cabinet dentaire",
-    "AI receptionist for dentists",
-    "secrétaire IA cabinet dentaire",
-    "répondeur intelligent cabinet médical",
-    "virtual receptionist for dental practices",
+    "assistant téléphonique IA",
+    "AI phone assistant",
+    "réceptionniste IA entreprise",
+    "AI receptionist for businesses",
+    "assistant vocal pour entreprises",
+    "répondeur intelligent professionnel",
+    "virtual receptionist for small business",
   ],
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },

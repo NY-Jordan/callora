@@ -109,17 +109,17 @@ export function CallDemo() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      className={speaker === "patient" ? "flex justify-start" : "flex justify-end"}
+                      className={speaker === "caller" ? "flex justify-start" : "flex justify-end"}
                     >
                       <div
                         className={
-                          speaker === "patient"
+                          speaker === "caller"
                             ? "max-w-[85%] rounded-2xl rounded-bl-sm bg-secondary px-4 py-2.5 text-sm leading-6 text-foreground"
                             : "max-w-[85%] rounded-2xl rounded-br-sm bg-brand px-4 py-2.5 text-sm leading-6 text-brand-foreground"
                         }
                       >
                         <p className="mb-1 text-[11px] font-medium tracking-wide uppercase opacity-60">
-                          {speaker === "patient" ? t.callDemo.speakerPatient : t.callDemo.speakerOra}
+                          {speaker === "caller" ? t.callDemo.speakerCaller : t.callDemo.speakerOra}
                         </p>
                         {t.callDemo.script[i]?.text}
                       </div>
@@ -133,7 +133,7 @@ export function CallDemo() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   className={
-                    callDemoSpeakers[visibleCount] === "patient" ? "flex justify-start" : "flex justify-end"
+                    callDemoSpeakers[visibleCount] === "caller" ? "flex justify-start" : "flex justify-end"
                   }
                 >
                   <span className="flex items-center gap-1 rounded-2xl bg-secondary px-3.5 py-2.5">
@@ -173,7 +173,7 @@ export function CallDemo() {
                       {t.callDemo.newRequest}
                     </p>
                     <p className="font-heading text-base font-semibold text-foreground">
-                      {t.callDemo.cleaning}
+                      {t.callDemo.requestLabel}
                     </p>
                     <p className="text-sm text-warning">{t.callDemo.status}</p>
                   </div>

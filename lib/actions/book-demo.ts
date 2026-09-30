@@ -41,7 +41,7 @@ export async function submitBookDemo(
   const details = [
     `Nom : ${name}`,
     `Email : ${email}`,
-    `Cabinet : ${practice}`,
+    `Entreprise : ${practice}`,
     phone ? `Téléphone : ${phone}` : null,
     date ? `Date souhaitée : ${date}` : null,
     timeSlot ? `Créneau souhaité : ${timeSlot}` : null,

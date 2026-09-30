@@ -42,4 +42,4 @@ export const dashboardCalls: {
   { id: "d-6", phone: "+33 6 •• •• 88 41", status: "follow-up", time: "08:15" },
 ]
 
-export const callDemoSpeakers: ("patient" | "ai")[] = ["patient", "ai", "patient", "ai"]
+export const callDemoSpeakers: ("caller" | "ai")[] = ["caller", "ai", "caller", "ai"]

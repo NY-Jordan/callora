@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 
 import { useLanguage } from "./language-provider"
 
@@ -10,6 +11,7 @@ export function Footer() {
   const links = [
     { label: t.nav.product, href: "#product" },
     { label: t.nav.howItWorks, href: "#how-it-works" },
+    { label: t.nav.industries, href: "/#secteurs" },
     { label: t.nav.pricing, href: "#pricing" },
     { label: t.nav.faq, href: "#faq" },
   ]
@@ -19,7 +21,7 @@ export function Footer() {
       <div className="page-container flex flex-col gap-10">
         <div className="flex flex-col justify-between gap-10 sm:flex-row">
           <div className="flex max-w-xs flex-col gap-3">
-            <a href="#top" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Image
                 src="/logo.png"
                 alt="Callora"
@@ -27,7 +29,7 @@ export function Footer() {
                 height={161}
                 className="h-7 w-auto"
               />
-            </a>
+            </Link>
             <p className="text-sm leading-6 text-muted-foreground">{t.footer.tagline}</p>
           </div>
 

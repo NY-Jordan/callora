@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og"
 
-export const alt = "Callora — Ne manquez plus jamais un appel patient"
+export const alt = "Callora — Ne laissez plus vos appels et demandes sans réponse"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -60,7 +60,7 @@ export default function Image() {
             maxWidth: "920px",
           }}
         >
-          Ne manquez plus jamais un appel patient.
+          Ne laissez plus vos appels et demandes sans réponse.
         </div>
 
         <div
@@ -71,7 +71,7 @@ export default function Image() {
             color: "rgba(250,250,250,0.65)",
           }}
         >
-          Ora — votre réceptionniste IA, disponible 24h/24 et 7j/7
+          Callora — votre assistant pour les appels et demandes, adapté à votre secteur
         </div>
       </div>
     ),

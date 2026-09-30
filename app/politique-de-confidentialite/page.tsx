@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 
 import { LinkButton } from "@/components/ui/button"
 import { siteConfig } from "@/lib/site-config"
@@ -7,7 +8,7 @@ import { siteConfig } from "@/lib/site-config"
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
   description:
-    "Comment Callora collecte, utilise et protège les données personnelles traitées dans le cadre de son assistant téléphonique IA pour cabinets dentaires.",
+    "Comment Callora collecte, utilise et protège les données personnelles traitées dans le cadre de son assistant téléphonique pour entreprises.",
   alternates: { canonical: "/politique-de-confidentialite" },
   robots: { index: true, follow: true },
 }
@@ -48,7 +49,7 @@ export default function PrivacyPolicyPage() {
     <>
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-md">
         <div className="page-container flex h-16 items-center justify-between">
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
               alt="Callora"
@@ -57,7 +58,7 @@ export default function PrivacyPolicyPage() {
               priority
               className="h-7 w-auto"
             />
-          </a>
+          </Link>
           <LinkButton href="/" variant="outline" size="sm">
             Retour à l&apos;accueil
           </LinkButton>

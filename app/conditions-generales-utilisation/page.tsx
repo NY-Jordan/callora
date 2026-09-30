@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 
 import { LinkButton } from "@/components/ui/button"
 import { siteConfig } from "@/lib/site-config"
@@ -7,7 +8,7 @@ import { siteConfig } from "@/lib/site-config"
 export const metadata: Metadata = {
   title: "Conditions générales d'utilisation",
   description:
-    "Conditions générales d'utilisation encadrant la souscription et l'utilisation du service Callora, assistant téléphonique IA pour cabinets dentaires.",
+    "Conditions générales d'utilisation encadrant la souscription et l'utilisation du service Callora, assistant téléphonique pour entreprises.",
   alternates: { canonical: "/conditions-generales-utilisation" },
   robots: { index: true, follow: true },
 }
@@ -43,7 +44,7 @@ export default function TermsOfServicePage() {
     <>
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-md">
         <div className="page-container flex h-16 items-center justify-between">
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
               alt="Callora"
@@ -52,7 +53,7 @@ export default function TermsOfServicePage() {
               priority
               className="h-7 w-auto"
             />
-          </a>
+          </Link>
           <LinkButton href="/" variant="outline" size="sm">
             Retour à l&apos;accueil
           </LinkButton>
