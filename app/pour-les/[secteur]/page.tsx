@@ -4,8 +4,12 @@ import { notFound } from "next/navigation"
 import { Footer } from "@/components/landing/footer"
 import { IndustryPage } from "@/components/landing/industry-page"
 import { Navbar } from "@/components/landing/navbar"
-import { defaultLocale } from "@/lib/translations"
-import { getIndustryPath, industriesByLocale, industrySlugs, type IndustrySlug } from "@/lib/industries"
+import { getIndustryPath, industrySlugs, type IndustrySlug } from "@/lib/industries"
+import { industrySeoByLocale } from "@/lib/industry-seo"
+import { siteConfig } from "@/lib/site-config"
+import { industryJsonLd } from "@/lib/structured-data"
+
+export const dynamicParams = false
 
 export function generateStaticParams() {
   return industrySlugs.map((secteur) => ({ secteur }))
@@ -23,16 +27,30 @@ export async function generateMetadata({
   const { secteur } = await params
   if (!isIndustrySlug(secteur)) return {}
 
-  const industry = industriesByLocale[defaultLocale][secteur]
+  const seo = industrySeoByLocale[siteConfig.defaultLocale][secteur]
+  const path = getIndustryPath(secteur)
+  const socialTitle = `${seo.title} — ${siteConfig.name}`
 
+  // openGraph/twitter are redefined in full: Next merges metadata shallowly,
+  // so anything left out here would silently fall back to the homepage copy.
   return {
-    title: `Callora pour ${industry.name.toLowerCase()}`,
-    description: industry.metaDescription,
-    alternates: { canonical: getIndustryPath(secteur) },
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: { canonical: path },
     robots: { index: true, follow: true },
     openGraph: {
-      title: `Callora pour ${industry.name.toLowerCase()}`,
-      description: industry.metaDescription,
+      type: "website",
+      locale: "fr_FR",
+      url: path,
+      siteName: siteConfig.name,
+      title: socialTitle,
+      description: seo.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: socialTitle,
+      description: seo.description,
     },
   }
 }
@@ -47,6 +65,10 @@ export default async function IndustryRoute({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(industryJsonLd(secteur)) }}
+      />
       <Navbar />
       <main className="flex-1">
         <IndustryPage slug={secteur} />

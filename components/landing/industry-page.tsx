@@ -12,11 +12,14 @@ import { CliniquesPage } from "./sectors/cliniques"
 import { DentistesPage } from "./sectors/dentistes"
 import { GaragesPage } from "./sectors/garages"
 import { HotelsPage } from "./sectors/hotels"
+import { OtherSectors } from "./sectors/other-sectors"
 import { SalonsPage } from "./sectors/salons"
+import { SectorFaq } from "./sectors/sector-faq"
 import { ServicesProfessionnelsPage } from "./sectors/services-professionnels"
 
-// Every sector has its own layout and story; only pricing and the demo form
-// (target of every "#book-demo" CTA) are shared.
+// Every sector has its own layout and story; the shared tail is pricing, the
+// sector FAQ (data-driven, mirrored in JSON-LD), the demo form targeted by
+// every "#book-demo" CTA, and links to the other sectors.
 const sectorPages: Record<IndustrySlug, ComponentType> = {
   dentistes: DentistesPage,
   cliniques: CliniquesPage,
@@ -35,7 +38,9 @@ export function IndustryPage({ slug }: { slug: IndustrySlug }) {
     <>
       <SectorPage />
       <Pricing />
+      <SectorFaq slug={slug} />
       <BookDemoForm />
+      <OtherSectors current={slug} />
     </>
   )
 }

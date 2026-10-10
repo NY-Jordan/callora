@@ -9,8 +9,8 @@ export function Footer() {
   const { t } = useLanguage()
 
   const links = [
-    { label: t.nav.product, href: "#product" },
-    { label: t.nav.howItWorks, href: "#how-it-works" },
+    { label: t.nav.product, href: "/#product" },
+    { label: t.nav.howItWorks, href: "/#how-it-works" },
     { label: t.nav.industries, href: "/#secteurs" },
     { label: t.nav.pricing, href: "#pricing" },
     { label: t.nav.faq, href: "#faq" },

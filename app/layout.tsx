@@ -12,9 +12,9 @@ const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
 });
 
-const title = "Callora — Ne laissez plus vos appels et demandes sans réponse";
+const title = "Callora — Assistant téléphonique pour entreprises, 24h/24";
 const description =
-  "Callora aide les entreprises à répondre aux appels et aux demandes entrantes quand leur équipe n'est pas disponible : réponse aux appels, prise de messages, rendez-vous facilités — adapté à votre secteur d'activité.";
+  "Callora répond aux appels de votre entreprise quand votre équipe n'est pas disponible : demandes traitées, urgences transférées, résumé de chaque appel. 0,30 €/min.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -22,20 +22,21 @@ export const metadata: Metadata = {
   description,
   applicationName: siteConfig.name,
   keywords: [
+    "assistant téléphonique entreprise",
+    "standard téléphonique virtuel",
+    "secrétariat téléphonique",
+    "permanence téléphonique 24h/24",
+    "réceptionniste virtuelle",
     "assistant téléphonique IA",
-    "AI phone assistant",
-    "réceptionniste IA entreprise",
-    "AI receptionist for businesses",
-    "assistant vocal pour entreprises",
     "répondeur intelligent professionnel",
-    "virtual receptionist for small business",
   ],
-  alternates: { canonical: "/" },
+  // Canonical is set per page (app/page.tsx, sector and legal pages) so no
+  // route silently inherits the homepage URL.
+  formatDetection: { telephone: false, email: false, address: false },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: siteConfig.url,
     siteName: siteConfig.name,
     title,
     description,

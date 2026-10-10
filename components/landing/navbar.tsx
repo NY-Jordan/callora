@@ -23,8 +23,8 @@ export function Navbar() {
   const industryContent = industriesByLocale[locale]
 
   const primaryLinks = [
-    { label: t.nav.product, href: "#product" },
-    { label: t.nav.howItWorks, href: "#how-it-works" },
+    { label: t.nav.product, href: "/#product" },
+    { label: t.nav.howItWorks, href: "/#how-it-works" },
   ]
   const secondaryLinks = [
     { label: t.nav.pricing, href: "#pricing" },

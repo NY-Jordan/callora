@@ -4,7 +4,7 @@ import Image from "next/image"
 import { LinkButton } from "@/components/ui/button"
 
 export const metadata: Metadata = {
-  title: "Page introuvable — Callora",
+  title: "Page introuvable",
   robots: { index: false, follow: false },
 }
 

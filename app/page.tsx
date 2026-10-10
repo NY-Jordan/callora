@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+
 import { BookDemoForm } from "@/components/landing/book-demo-form"
 import { CallDemo } from "@/components/landing/call-demo"
 import { DashboardShowcase } from "@/components/landing/dashboard-showcase"
@@ -15,6 +17,10 @@ import { ProblemSection } from "@/components/landing/problem-section"
 import { RoiSection } from "@/components/landing/roi-section"
 import { TrustSection } from "@/components/landing/trust-section"
 import { faqJsonLd, softwareApplicationJsonLd } from "@/lib/structured-data"
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+}
 
 export default function Home() {
   return (

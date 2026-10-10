@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og"
 
-export const alt = "Callora — Ne laissez plus vos appels et demandes sans réponse"
+export const alt = "Callora — Assistant téléphonique pour entreprises, 24h/24"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
