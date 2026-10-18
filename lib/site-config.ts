@@ -14,3 +14,7 @@ export const siteConfig = {
 export function absoluteUrl(path = "/") {
   return new URL(path, siteConfig.url).toString()
 }
+
+// Callora Msg has no live checkout yet, so every pricing CTA routes here
+// until a real payment integration lands.
+export const CALLORA_MSG_WAITLIST_HREF = "/callora-msg/liste-attente"

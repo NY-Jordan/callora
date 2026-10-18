@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    { url: absoluteUrl("/callora-msg"), lastModified, changeFrequency: "weekly", priority: 0.6 },
     { url: absoluteUrl("/conditions-generales-utilisation"), lastModified, changeFrequency: "yearly", priority: 0.2 },
     { url: absoluteUrl("/politique-de-confidentialite"), lastModified, changeFrequency: "yearly", priority: 0.2 },
   ]
