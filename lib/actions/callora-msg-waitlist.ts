@@ -14,12 +14,16 @@ export type WaitlistErrorCode =
 export type WaitlistState = {
   status: "idle" | "success" | "error"
   error?: WaitlistErrorCode
+  // Short, secret-free diagnostic string. Surfaced to the browser console so
+  // production failures can be debugged from devtools without server log access.
+  debug?: string
 }
 
 export type WaitlistCheckResult = {
   emailTaken: boolean
   whatsappTaken: boolean
   error?: "serverMisconfigured" | "sendFailed"
+  debug?: string
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -93,16 +97,22 @@ export async function checkCalloraMsgWaitlist(input: {
 }): Promise<WaitlistCheckResult> {
   try {
     const response = await callApi("/check", { ...input, ip_address: await visitorIp() })
-    if (!response) return { emailTaken: false, whatsappTaken: false, error: "serverMisconfigured" }
+    if (!response) {
+      const debug = "CALLORA_API_URL ou WAITLIST_API_KEY manquant côté serveur (env prod)"
+      console.error("[callora-msg-waitlist]", debug)
+      return { emailTaken: false, whatsappTaken: false, error: "serverMisconfigured", debug }
+    }
     if (!response.ok) {
-      console.error("[callora-msg-waitlist] check failed with status", response.status)
-      return { emailTaken: false, whatsappTaken: false, error: "sendFailed" }
+      const debug = `/check a répondu ${response.status}`
+      console.error("[callora-msg-waitlist]", debug)
+      return { emailTaken: false, whatsappTaken: false, error: "sendFailed", debug }
     }
     const data = (await response.json()) as { email_taken: boolean; whatsapp_taken: boolean }
     return { emailTaken: data.email_taken, whatsappTaken: data.whatsapp_taken }
   } catch (error) {
-    console.error("[callora-msg-waitlist] check request failed:", error)
-    return { emailTaken: false, whatsappTaken: false, error: "sendFailed" }
+    const debug = `/check injoignable: ${error instanceof Error ? error.message : String(error)}`
+    console.error("[callora-msg-waitlist]", debug)
+    return { emailTaken: false, whatsappTaken: false, error: "sendFailed", debug }
   }
 }
 
@@ -160,13 +170,15 @@ export async function submitCalloraMsgWaitlist(
       ip_address: await visitorIp(),
     })
   } catch (error) {
-    console.error("[callora-msg-waitlist] Failed to reach the API:", error)
-    return { status: "error", error: "sendFailed" }
+    const debug = `API injoignable: ${error instanceof Error ? error.message : String(error)}`
+    console.error("[callora-msg-waitlist]", debug)
+    return { status: "error", error: "sendFailed", debug }
   }
 
   if (!response) {
-    console.error("[callora-msg-waitlist] CALLORA_API_URL or WAITLIST_API_KEY is not set.")
-    return { status: "error", error: "serverMisconfigured" }
+    const debug = "CALLORA_API_URL ou WAITLIST_API_KEY manquant côté serveur (env prod)"
+    console.error("[callora-msg-waitlist]", debug)
+    return { status: "error", error: "serverMisconfigured", debug }
   }
   if (response.status === 422) {
     const data = (await response.json().catch(() => null)) as {
@@ -176,14 +188,17 @@ export async function submitCalloraMsgWaitlist(
     if (errors.email?.includes("already_registered") || errors.whatsapp?.includes("already_registered")) {
       return { status: "error", error: "alreadyRegistered" }
     }
-    if (errors.whatsapp) return { status: "error", error: "invalidWhatsapp" }
-    if (errors.email) return { status: "error", error: "invalidEmail" }
-    console.error("[callora-msg-waitlist] API rejected the signup:", errors)
-    return { status: "error", error: "missingFields" }
+    if (errors.whatsapp) return { status: "error", error: "invalidWhatsapp", debug: JSON.stringify(errors) }
+    if (errors.email) return { status: "error", error: "invalidEmail", debug: JSON.stringify(errors) }
+    const debug = `API a rejeté l'inscription (422): ${JSON.stringify(errors)}`
+    console.error("[callora-msg-waitlist]", debug)
+    return { status: "error", error: "missingFields", debug }
   }
   if (!response.ok) {
-    console.error("[callora-msg-waitlist] API returned status", response.status)
-    return { status: "error", error: "sendFailed" }
+    const bodyText = await response.text().catch(() => "")
+    const debug = `API a répondu ${response.status}${bodyText ? `: ${bodyText.slice(0, 300)}` : ""}`
+    console.error("[callora-msg-waitlist]", debug)
+    return { status: "error", error: "sendFailed", debug }
   }
 
   // 2. Notify by email. The signup is already saved, so a mail failure is logged, not surfaced.

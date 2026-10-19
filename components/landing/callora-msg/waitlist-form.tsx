@@ -1,6 +1,6 @@
 "use client"
 
-import { useActionState, useState } from "react"
+import { useActionState, useEffect, useState } from "react"
 import { ArrowLeft, ArrowRight, CheckCircle2, Mail } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -360,6 +360,14 @@ export function WaitlistForm() {
   const [aiDelegation, setAiDelegation] = useState<AiDelegation | null>(null)
   const [stepError, setStepError] = useState<string | null>(null)
 
+  // Surfaced in the browser console so production failures can be diagnosed
+  // from devtools without needing access to the server logs.
+  useEffect(() => {
+    if (state.status === "error") {
+      console.error("[callora-msg-waitlist] submit failed:", state.error, state.debug)
+    }
+  }, [state])
+
   /** Returns an error message for the current step, or null when it's complete. */
   const validateStep = async (): Promise<string | null> => {
     switch (step) {
@@ -367,14 +375,20 @@ export function WaitlistForm() {
         if (!email.trim()) return c.stepRequired
         if (!EMAIL_PATTERN.test(email.trim())) return c.stepInvalidEmail
         const result = await checkCalloraMsgWaitlist({ email: email.trim() })
-        if (result.error) return c.errors[result.error]
+        if (result.error) {
+          console.error("[callora-msg-waitlist] email check failed:", result.error, result.debug)
+          return c.errors[result.error]
+        }
         return result.emailTaken ? c.emailTaken : null
       }
       case 2: {
         if (!whatsapp.trim()) return c.stepRequired
         if (!WHATSAPP_PATTERN.test(whatsapp.trim())) return c.stepInvalidWhatsapp
         const result = await checkCalloraMsgWaitlist({ whatsapp: whatsapp.trim() })
-        if (result.error) return c.errors[result.error]
+        if (result.error) {
+          console.error("[callora-msg-waitlist] whatsapp check failed:", result.error, result.debug)
+          return c.errors[result.error]
+        }
         return result.whatsappTaken ? c.whatsappTaken : null
       }
       case 3:
