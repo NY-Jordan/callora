@@ -100,15 +100,12 @@ export function Navbar() {
             </a>
           ))}
 
-          <Link
-            href="/callora-msg"
+          <a
+            href="https://message.callora.agency"
             className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             {t.nav.calloraMsg}
-            <span className="inline-flex items-center rounded-full bg-teal-soft px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-teal-foreground uppercase">
-              {t.nav.comingSoon}
-            </span>
-          </Link>
+          </a>
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -201,16 +198,13 @@ export function Navbar() {
                 </a>
               ))}
 
-              <Link
-                href="/callora-msg"
+              <a
+                href="https://message.callora.agency"
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
               >
                 {t.nav.calloraMsg}
-                <span className="inline-flex items-center rounded-full bg-teal-soft px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-teal-foreground uppercase">
-                  {t.nav.comingSoon}
-                </span>
-              </Link>
+              </a>
 
               <div className="mt-2 flex flex-col gap-2">
                 <Button

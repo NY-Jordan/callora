@@ -10,7 +10,6 @@ export type Translations = {
     tryOra: string
     bookDemo: string
     calloraMsg: string
-    comingSoon: string
   }
   hero: {
     eyebrow: string
@@ -199,8 +198,7 @@ const fr: Translations = {
     faq: "FAQ",
     tryOra: "Essayer Ora",
     bookDemo: "Réserver une démo",
-    calloraMsg: "Callora Msg",
-    comingSoon: "Bientôt",
+    calloraMsg: "Message AI",
   },
   hero: {
     eyebrow: "Ne laissez plus vos appels et demandes sans réponse",
@@ -458,8 +456,7 @@ const en: Translations = {
     faq: "FAQ",
     tryOra: "Try Ora",
     bookDemo: "Book a demo",
-    calloraMsg: "Callora Msg",
-    comingSoon: "Coming soon",
+    calloraMsg: "Message AI",
   },
   hero: {
     eyebrow: "Never leave a call or request unanswered",
