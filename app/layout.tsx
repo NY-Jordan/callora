@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -68,6 +69,7 @@ export default function RootLayout({
         <LanguageProvider>
           <BrowserCallProvider>{children}</BrowserCallProvider>
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
